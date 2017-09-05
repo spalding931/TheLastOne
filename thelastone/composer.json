@@ -13,6 +13,7 @@
     },
     "require": {
         "php": ">=5.3.9",
+        "components/jquery": "^3.2",
         "doctrine/doctrine-bundle": "~1.4",
         "doctrine/orm": "^2.4.8",
         "incenteev/composer-parameter-handler": "~2.0",
@@ -22,6 +23,7 @@
         "symfony/monolog-bundle": "^3.0.2",
         "symfony/swiftmailer-bundle": "~2.3,>=2.3.10",
         "symfony/symfony": "2.7.*",
+        "twbs/bootstrap": "4.0.0-beta",
         "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
