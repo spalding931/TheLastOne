@@ -3,7 +3,9 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * @ORM\Entity
@@ -19,22 +21,22 @@ class Message
     protected $id_message;
 
     /** @ORM\Column(type="string") */
-    private $content;
+    protected $content;
 
     /** @ORM\Column(type="datetime") */
-    private $timestamp;
+    protected $timestamp;
 
     /**
-     * @ORM\Column(type="integer")
-     * @Id @OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="messagesenvoyes")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $id_fromuser;
-    
+    protected $emetteur;
+
     /**
-     * @ORM\Column(type="integer")
-     * @Id @OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="messagesrecus")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $id_touser;
+    protected $destinataire;
 
     public function __construct()
     {
