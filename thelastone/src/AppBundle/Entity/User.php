@@ -23,8 +23,8 @@ class User extends BaseUser
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Message", mappedBy="emetteur")
      */
-
     protected $messagesenvoyes;
+
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Message", mappedBy="destinataire")
      */

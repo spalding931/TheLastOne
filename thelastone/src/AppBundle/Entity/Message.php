@@ -4,6 +4,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\User;
+use AppBundle\Entity\Post;
 use Doctrine\ORM\Mapping as ORM;
 
 

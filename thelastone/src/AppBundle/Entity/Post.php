@@ -1,5 +1,5 @@
 <?php
-// src/AppBundle/Entity/Article.php
+// src/AppBundle/Entity/Postp
 
 namespace AppBundle\Entity;
 
@@ -7,9 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="Article")
+ * @ORM\Table(name="Post")
  */
-class Article
+class Post
 {
     /**
      * @ORM\Id
@@ -19,19 +19,14 @@ class Article
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     */
-    protected $title;
-
-    /**
      * @ORM\Column(type="string", length=1000)
      */
     protected $content;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="integer")
      */
-    protected $genre;
+    protected $likes;
 
     /**
      * @ORM\Column(type="datetime")
@@ -43,10 +38,17 @@ class Article
      */
     protected $updatedAt;
 
+
     /**
      * @ORM\Column(type="boolean")
      */
     protected $enabled;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comment", mappedBy="post")
+     */
+    protected $commentaires;
+
 
     public function __construct()
     {
