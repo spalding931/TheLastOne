@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /Users/bouthoukinea/Documents/school/TheLastOne/thelastone/app/config/routing_dev.yml
