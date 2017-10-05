@@ -3,8 +3,7 @@
 
 namespace AppBundle\Entity;
 
-use FOS\UserBundle\Entity\User as BaseUser;
-use AppBundle\Entity\Message;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,16 +18,6 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Message", mappedBy="emetteur")
-     */
-    protected $messagesenvoyes;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Message", mappedBy="destinataire")
-     */
-    protected $messagesrecus;
 
     public function __construct()
     {

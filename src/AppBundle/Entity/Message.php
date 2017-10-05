@@ -1,12 +1,9 @@
 <?php
-// src/AppBundle/Entity/Message.php
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\User;
-use AppBundle\Entity\Post;
 use Doctrine\ORM\Mapping as ORM;
-
+use AppBundle\Entity\User;
 
 /**
  * @ORM\Entity
@@ -20,31 +17,25 @@ class Message
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id_message;
-
     /** @ORM\Column(type="string") */
     protected $content;
-
     /** @ORM\Column(type="datetime") */
     protected $timestamp;
-
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="messagesenvoyes")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $emetteur;
-
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="messagesrecus")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $destinataire;
-
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
-
     /**
      * @return mixed
      */
@@ -52,7 +43,6 @@ class Message
     {
         return $this->id_message;
     }
-
     /**
      * @param mixed $id_message
      */
@@ -60,7 +50,6 @@ class Message
     {
         $this->id_message = $id_message;
     }
-
     /**
      * @return mixed
      */
@@ -68,7 +57,6 @@ class Message
     {
         return $this->content;
     }
-
     /**
      * @param mixed $content
      */
@@ -76,7 +64,6 @@ class Message
     {
         $this->content = $content;
     }
-
     /**
      * @return mixed
      */
@@ -84,7 +71,6 @@ class Message
     {
         return $this->timestamp;
     }
-
     /**
      * @param mixed $timestamp
      */
@@ -92,7 +78,6 @@ class Message
     {
         $this->timestamp = $timestamp;
     }
-
     /**
      * @return mixed
      */
@@ -100,7 +85,6 @@ class Message
     {
         return $this->emetteur;
     }
-
     /**
      * @param mixed $emetteur
      */
@@ -108,7 +92,6 @@ class Message
     {
         $this->emetteur = $emetteur;
     }
-
     /**
      * @return mixed
      */
@@ -116,7 +99,6 @@ class Message
     {
         return $this->destinataire;
     }
-
     /**
      * @param mixed $destinataire
      */
@@ -124,6 +106,4 @@ class Message
     {
         $this->destinataire = $destinataire;
     }
-
-
 }

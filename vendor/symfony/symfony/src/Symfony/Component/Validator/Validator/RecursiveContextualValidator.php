@@ -458,7 +458,7 @@ class RecursiveContextualValidator implements ContextualValidatorInterface
      * instance. Each class node (conceptionally) has zero or more succeeding
      * property nodes:
      *
-     *     (Post:class node)
+     *     (Article:class node)
      *                \
      *        ($title:property node)
      *
