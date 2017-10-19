@@ -8,9 +8,9 @@ import List from './List';
 import SignIn from './SignIn';
 
 firebase.initializeApp({
-  apiKey: 'AIzaSyCX1Q4yD-2vIE8YNM9Kjgtd3wm1ExIbp2o',
-  authDomain: 'chat-1794e.firebaseapp.com',
-  databaseURL: 'https://chat-1794e.firebaseio.com',
+    apiKey: 'AIzaSyC2xn8hAwKfn75Afk4N0_ypIKr-h4Vkc48',
+    authDomain: 'thelastone-6ed2d.firebaseapp.com',
+    databaseURL: 'https://thelastone-6ed2d.firebaseio.com',
   storageBucket: '',
 });
 window.firebase = firebase;
