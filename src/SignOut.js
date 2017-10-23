@@ -1,5 +1,5 @@
 import React from "react";
-import AppChat from "./AppChat";
+
 
 const SignOut = React.createClass({
 
