@@ -18,7 +18,7 @@ const SearchForm = React.createClass({
         const self = this;
         var input = this.refs.text.value;
         $.ajax({
-            url: "http://food2fork.com/api/search?key=a44d6f379e70d83a34534d107e7e8875&q="+input,
+            url: "https://food2fork.com/api/search?key=a44d6f379e70d83a34534d107e7e8875&q="+input,
             type: "GET",
             contentType: 'application/json; charset=utf-8',
             success: function (resultData) {
