@@ -5,7 +5,6 @@ import SearchForm from "./Component/SearchForm";
 import Log from  "./Component/Log";
 import "./Style/index.css";
 import "bootstrap/dist/css/bootstrap.css";
-import "jquery";
 
 ReactDOM.render(
     <SearchForm />,

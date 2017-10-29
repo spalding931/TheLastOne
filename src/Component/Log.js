@@ -8,7 +8,8 @@ import SignOut from './SignOut';
 
 const Log = React.createClass({
 
-    user:null,
+
+
     componentWillMount()
     {
         var self = this;
@@ -19,8 +20,13 @@ const Log = React.createClass({
         });
     }
     ,
+    callback()
+    {
+        this.setState({user:null});
+    }
+    ,
     render() {
-        return user ? (<SignOut />):(<SignIn/>);
+        return user ? (<SignOut callback={this.callback} />):(<SignIn />);
     }
 });
 export default Log;

@@ -32,7 +32,6 @@ const SearchForm = React.createClass({
 
             timeout: 120000,
         });
-        this.refs.text.value = '';
 
     },
 
@@ -41,7 +40,8 @@ const SearchForm = React.createClass({
         if (!this.state.is_search)
         {
             const self = this;
-            var url = "http://food2fork.com/api/search?key=a44d6f379e70d83a34534d107e7e8875";
+            var randNumber = Math.round(Math.random()*10)+1;
+            var url = "http://food2fork.com/api/search?key=a44d6f379e70d83a34534d107e7e8875&page="+randNumber;
             $.ajax({
                 url: url,
                 type: "GET",
@@ -61,15 +61,15 @@ const SearchForm = React.createClass({
         const data = this.state.recipes;
         return (
             <div>
-                <form  onSubmit={this.search}>
+                <form  className="search" onSubmit={this.search}>
                     <div className="input-group search">
-                        <input type="text" className="form-control" placeholder="Ingredient, recipe ..."/>
+                         <input type="text" className="form-control" placeholder="Ingredient, recipe ..." ref="text"/>
                           <span className="input-group-btn">
                             <button className="btn btn-default">Go!</button>
                           </span>
                     </div>
                 </form>
-                {data.length ? <ArticlesList articles={data}/> : this.state.is_search ? "NO result" : ""}
+                {data.length ? <ArticlesList articles={data}/> : this.state.is_search ? <h3 className="main-title">No result</h3> : ""}
             </div>
     );
     }

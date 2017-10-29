@@ -16,7 +16,6 @@ const AppChat = React.createClass({
 
     mixins: [ReactFireMixin],
 
-
     getInitialState() {
         return {
             messages: [],
@@ -48,7 +47,9 @@ const AppChat = React.createClass({
     render() {
         // console.log('App:render', this.state);
         const {messages, user} = this.state;
-        window.user = this.state.user;
+        window.user = user;
+        if(user)
+            document.getElementById("chat").style.visibility = "visible";
         return user ? (
                 <div>
                     <div className="scrollable">
