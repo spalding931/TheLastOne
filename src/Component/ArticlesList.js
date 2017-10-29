@@ -23,11 +23,9 @@ const ArticlesList = React.createClass({
                                     <div className="data">
                                         <div className="content">
                                             <span className="author">{article.publisher}</span>
-                                            <h1 className="title"><a href="#">{article.title}</a>
-                                            </h1>
+                                            <h1 className="title">{article.title}</h1>
                                             <p className="text">The antsy bingers of Netflix will eagerly anticipate the digital
                                                 release of the Survive soundtrack, out today.</p>
-                                            <a href={"#"+article.recipe_id} className="button">Read more</a>
                                         </div>
                                     </div>
                                 </div>

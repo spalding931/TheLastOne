@@ -1,6 +1,5 @@
-This repo started with `create-react-app` and you can read that full README [here](https://github.com/facebookincubator/create-react-app/blob/master/template/README.md).
 
-## Getting Started
+## Présentation du projet
 
 Run `npm install` after cloning the repo.
 

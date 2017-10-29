@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AppChat from "./AppChat";
-import SearchForm from "./SearchForm";
-import "./index.css";
-import "./App.css"
+import AppChat from "./Component/AppChat";
+import SearchForm from "./Component/SearchForm";
+import Log from  "./Component/Log";
+import "./Style/index.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "jquery";
 
 ReactDOM.render(
     <SearchForm />,
@@ -15,3 +17,4 @@ ReactDOM.render(
     document.getElementById('chat')
 );
 
+ReactDOM.render(<Log />,document.getElementById('log'));

@@ -3,8 +3,6 @@ import React from "react";
 import ReactFireMixin from "reactfire";
 import Form from "./Form";
 import List from "./List";
-import SignIn from "./SignIn";
-import SignOut from "./SignOut";
 
 firebase.initializeApp({
     apiKey: 'AIzaSyC2xn8hAwKfn75Afk4N0_ypIKr-h4Vkc48',
@@ -17,6 +15,7 @@ window.firebase = firebase;
 const AppChat = React.createClass({
 
     mixins: [ReactFireMixin],
+
 
     getInitialState() {
         return {
@@ -37,7 +36,8 @@ const AppChat = React.createClass({
     },
 
     componentDidUpdate() {
-        window.scroll(0, document.documentElement.offsetHeight);
+        var myChat = document.getElementById('chat');
+        myChat.scroll(0, myChat.offsetHeight);
     },
 
     callbackSignOut(){
@@ -48,19 +48,18 @@ const AppChat = React.createClass({
     render() {
         // console.log('App:render', this.state);
         const {messages, user} = this.state;
-        return !user ? <SignIn  /> : (
+        window.user = this.state.user;
+        return user ? (
                 <div>
-                    <SignOut callback={this.callbackSignOut.bind(this)} />
                     <div className="scrollable">
                         {
                             messages.length ? <List messages={messages}/> : <span> Loading </span>
-
                         }
-                        <Form messagesRef={this.messagesRef} user={user}/>
+                        <Form className="myform" messagesRef={this.messagesRef} user={user}/>
                     </div>
 
                 </div>
-            );
+            ):null;
     },
 });
 export default AppChat;

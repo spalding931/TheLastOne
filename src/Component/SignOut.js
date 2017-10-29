@@ -9,14 +9,12 @@ class SignOut extends React.Component{
 
     signOut() {
         firebase.auth().signOut().then(function () {
-
+            
         }).catch(function (error) {
-            // An error happened.
-            alert(error);
         });
     }
     render() {
-        return <button className="btn-default" onClick={this.signOut}>Sign Out</button>;
+        return <button className="btn btn-default" onClick={this.signOut}>Sign Out</button>;
     }
 }
 export default SignOut;

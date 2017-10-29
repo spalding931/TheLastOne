@@ -18,8 +18,7 @@ const SearchForm = React.createClass({
         const self = this;
         var input = this.refs.text.value;
         var url = "http://food2fork.com/api/search?key=a44d6f379e70d83a34534d107e7e8875";
-        if (!input)
-            url += "&q=" + input;
+        url += "&q=" + input;
 
         $.ajax({
             url: url,
@@ -39,30 +38,38 @@ const SearchForm = React.createClass({
 
     componentWillMount()
     {
-        const self = this;
-        var url = "http://food2fork.com/api/search?key=a44d6f379e70d83a34534d107e7e8875";
-        $.ajax({
-            url: url,
-            type: "GET",
-            success: function (resultData) {
-                self.setState({recipes: JSON.parse(resultData).recipes});
-            }.bind(this),
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert('error');
-            },
-            timeout: 120000,
-        });
+        if (!this.state.is_search)
+        {
+            const self = this;
+            var url = "http://food2fork.com/api/search?key=a44d6f379e70d83a34534d107e7e8875";
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function (resultData) {
+                    self.setState({recipes: JSON.parse(resultData).recipes});
+                }.bind(this),
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('error');
+                },
+                timeout: 120000,
+            });
+        }
+
     }
     ,
     render() {
         const data = this.state.recipes;
         return (
             <div>
-                <form onSubmit={this.search}>
-                    <input type="search" placeholder="Search" />
+                <form  onSubmit={this.search}>
+                    <div className="input-group search">
+                        <input type="text" className="form-control" placeholder="Ingredient, recipe ..."/>
+                          <span className="input-group-btn">
+                            <button className="btn btn-default">Go!</button>
+                          </span>
+                    </div>
                 </form>
                 {data.length ? <ArticlesList articles={data}/> : this.state.is_search ? "NO result" : ""}
-
             </div>
     );
     }

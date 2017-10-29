@@ -18,7 +18,7 @@ const SignIn = React.createClass({
         }).catch((error) => console.error(error)); // eslint-disable-line no-undef, no-console
     },
     render() {
-        return <button className="btn-default" onClick={this.signIn}>Sign in with Google Account</button>;
+        return <button className="btn btn-default" onClick={this.signIn}>Sign in with Google Account</button>;
     }
 });
 export default SignIn;
