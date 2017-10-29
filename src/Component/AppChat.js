@@ -27,7 +27,7 @@ const AppChat = React.createClass({
 
     componentWillMount() {
         const self = this;
-        var messagesRef= firebase.database().ref('messages');
+        var messagesRef = firebase.database().ref('messages');
         firebase.auth().onAuthStateChanged((authData) => {
             if (authData) {
                 self.setState({user: authData});
@@ -40,16 +40,25 @@ const AppChat = React.createClass({
         window.scroll(0, document.documentElement.offsetHeight);
     },
 
+    callbackSignOut(){
+        this.setState({user:null});
+        alert("change state");
+    },
+
     render() {
         // console.log('App:render', this.state);
         const {messages, user} = this.state;
-        return !user ? <SignIn /> : (
+        return !user ? <SignIn  /> : (
                 <div>
-                  <SignOut/>
-                    {
-                        messages.length ? <List messages={messages}/> : 'Loading messages…'
-                    }
-                  <Form messagesRef={this.messagesRef} user={user}/>
+                    <SignOut callback={this.callbackSignOut.bind(this)} />
+                    <div className="scrollable">
+                        {
+                            messages.length ? <List messages={messages}/> : <span> Loading </span>
+
+                        }
+                        <Form messagesRef={this.messagesRef} user={user}/>
+                    </div>
+
                 </div>
             );
     },
