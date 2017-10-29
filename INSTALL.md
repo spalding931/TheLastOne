@@ -13,3 +13,8 @@ git clone https://github.com/spalding931/TheLastOne.git
 
 4 - Pour consulter le site, vous devrez vous dirigez vers : `localhost:3000` 
 
+NB: Nous avons rencontrer un probleme de Cross Origin lors des requetes REST parce que l'url n'a pas le même domain que notre site et la solution est :
+1. d'installer une extension sur le navigateur -> Nous recommandons l'extension CORS sur chrome 
+2. supprimer les liens pardefaut et ajouter le lien : `http://food2fork.com/*`
+
+

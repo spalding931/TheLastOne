@@ -55,7 +55,7 @@ const AppChat = React.createClass({
                         {
                             messages.length ? <List messages={messages}/> : <span> Loading </span>
                         }
-                        <Form className="myform" messagesRef={this.messagesRef} user={user}/>
+                        <Form messagesRef={this.messagesRef} user={user}/>
                     </div>
 
                 </div>
