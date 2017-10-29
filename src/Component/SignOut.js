@@ -5,7 +5,7 @@ const SignOut = React.createClass({
     signOut() {
         firebase.auth().signOut().then(function () {
             document.getElementById("chat").style.visibility = "hidden";
-            this.props.callback();
+            location.reload();
         }).catch(function (error) {
         });
     },

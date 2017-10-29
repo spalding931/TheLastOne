@@ -14,6 +14,7 @@ window.firebase = firebase;
 
 const AppChat = React.createClass({
 
+    messagesRef: firebase.database().ref('messages'),
     mixins: [ReactFireMixin],
 
     getInitialState() {
@@ -25,18 +26,16 @@ const AppChat = React.createClass({
 
     componentWillMount() {
         const self = this;
-        var messagesRef = firebase.database().ref('messages');
         firebase.auth().onAuthStateChanged((authData) => {
             if (authData) {
                 self.setState({user: authData});
-                self.bindAsArray(messagesRef, 'messages');
+                self.bindAsArray(this.messagesRef, 'messages');
             }
         });
     },
 
     componentDidUpdate() {
-        var myChat = document.getElementById('chat');
-        myChat.scroll(0, myChat.offsetHeight);
+        document.getElementById("chat").scroll(0,document.getElementById("chat").scrollHeight)
     },
 
     callbackSignOut(){

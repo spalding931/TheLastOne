@@ -20,13 +20,14 @@ const Log = React.createClass({
         });
     }
     ,
-    callback()
+    callback(e)
     {
+        e.preventDefault();
         this.setState({user:null});
     }
     ,
     render() {
-        return user ? (<SignOut callback={this.callback} />):(<SignIn />);
+        return user ? (<SignOut callback={this.callback.bind(this)} />):(<SignIn />);
     }
 });
 export default Log;
